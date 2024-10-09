@@ -9,14 +9,14 @@
 
 1. 프로젝트 빌드:
    ```
-   BODY_SIZE_LIMIT=100000000 npm run build
+   npm run build
    ```
-   - `BODY_SIZE_LIMIT` 환경 변수를 설정하여 요청 본문 크기 제한을 늘립니다. 이는 413 에러를 방지하기 위함입니다.
 
 2. 프로젝트 실행:
    ```
-   node build
+   BODY_SIZE_LIMIT=100000000 node build
    ```
+   - `BODY_SIZE_LIMIT` 환경 변수를 설정하여 요청 본문 크기 제한을 늘립니다. 이는 413 에러를 방지하기 위함입니다.
 
 ### 주요 포인트
 - `BODY_SIZE_LIMIT` 옵션을 사용하여 요청 본문 크기를 늘려야 합니다. 이는 큰 EML 파일을 처리할 때 발생할 수 있는 413 에러를 방지합니다.
