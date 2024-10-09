@@ -1,38 +1,26 @@
-# create-svelte
+# EML 파서 프로젝트
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## 주의사항 및 실행 방법
 
-## Creating a project
+### 도커 사용 시 주의사항
+이 프로젝트는 현재 도커로 실행하는 것을 권장하지 않습니다. 로컬 환경에서 직접 실행하는 것이 좋습니다.
 
-If you're seeing this, you've probably already done this step. Congrats!
+### 빌드 및 실행 방법
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. 프로젝트 빌드:
+   ```
+   BODY_SIZE_LIMIT=100000000 npm run build
+   ```
+   - `BODY_SIZE_LIMIT` 환경 변수를 설정하여 요청 본문 크기 제한을 늘립니다. 이는 413 에러를 방지하기 위함입니다.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+2. 프로젝트 실행:
+   ```
+   node build
+   ```
 
-## Developing
+### 주요 포인트
+- `BODY_SIZE_LIMIT` 옵션을 사용하여 요청 본문 크기를 늘려야 합니다. 이는 큰 EML 파일을 처리할 때 발생할 수 있는 413 에러를 방지합니다.
+- 빌드 후에는 반드시 `node build` 명령어로 실행해야 합니다.
+- 현재 도커 환경에서의 실행은 지원되지 않으므로 로컬 환경에서 직접 실행하는 것을 권장합니다.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+이 지침을 따르면 EML 파서 프로젝트를 성공적으로 빌드하고 실행할 수 있습니다.

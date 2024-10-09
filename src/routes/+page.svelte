@@ -4,6 +4,11 @@
   let iframeHeight = 300;
 
   async function handleSubmit() {
+		if (!emlFile || emlFile.length === 0) {
+			alert('파일을 선택하세요.');
+			return;
+		}
+		
     const formData = new FormData();
     formData.append('emlFile', emlFile[0]);
 
